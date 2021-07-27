@@ -1,9 +1,15 @@
 version: '3.7'
 services:
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+          - 3333:3333
+
     web:
         image: nginx:latest
         ports:
-            - "8080:8080"
+            - 3310:3310
         volumes:
             - ./nginx.conf:/etc/nginx/nginx.conf:ro
             - ./app:/app
